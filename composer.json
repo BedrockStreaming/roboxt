@@ -1,8 +1,11 @@
 {
     "name": "m6web/roboxt",
     "description": "lib used for parsing a robots.txt file",
+    "require": {
+        "phpcollection/phpcollection": "0.2.*@dev"
+    },
     "require-dev": {
-        "phpspec/phpspec": "2.0"
+        "phpspec/phpspec": "~2.0"
     },
     "license": "MIT",
     "authors": [
@@ -12,7 +15,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-
+    "target-dir": "M6Web/Component/Roboxt",
+    "autoload": {
+        "psr-0": {"Roboxt": "src/"}
     }
 }

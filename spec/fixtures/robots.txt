@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /foo
+Allow: /baz
+Allow: /bar
+Sitemap: /sitemap.xml
+
+User-agent: Googlebot-News
+Disallow: /foo
+Allow: /baz
