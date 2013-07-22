@@ -28,7 +28,7 @@ class UserAgentSpec extends ObjectBehavior
         $directives->add(new Directive('Disallow', '/forumold/'));
 
         $this->beConstructedWith('foo', $directives);
-        $this->isIndexable($url)->shouldReturn(true);
+        $this->isUrlAllowed($url)->shouldReturn(true);
     }
 
     function it_should_check_that_an_url_is_not_indexable()
@@ -39,7 +39,7 @@ class UserAgentSpec extends ObjectBehavior
         $directives->add(new Directive('Disallow', '/forumold/'));
 
         $this->beConstructedWith('foo', $directives);
-        $this->isIndexable($url)->shouldReturn(false);
+        $this->isUrlAllowed($url)->shouldReturn(false);
     }
 
     function it_should_check_that_an_url_is_indexable_event_with_a_disallow_directive()
@@ -51,6 +51,6 @@ class UserAgentSpec extends ObjectBehavior
         $directives->add(new Directive('Allow', '/bar/foo'));
 
         $this->beConstructedWith('GoolgeBot', $directives);
-        $this->isIndexable($url)->shouldReturn(true);
+        $this->isUrlAllowed($url)->shouldReturn(true);
     }
 }

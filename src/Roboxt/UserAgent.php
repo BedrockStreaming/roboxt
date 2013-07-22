@@ -62,7 +62,7 @@ class UserAgent
      * @param $url
      * @return bool
      */
-    public function isIndexable($url)
+    public function isUrlAllowed($url)
     {
         // By default an url is allowed to any bot.
         $indexable = true;

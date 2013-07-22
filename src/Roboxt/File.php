@@ -11,12 +11,13 @@ use PhpCollection\Sequence;
  */
 class File
 {
+    const DEFAULT_UA_NAME = '*';
     /**
      * Default User-Agent name
      *
      * @var string
      */
-    private $default = "*";
+    private $default = self::DEFAULT_UA_NAME;
 
     /**
      * @var string
@@ -73,5 +74,22 @@ class File
         }
 
         return $this->userAgents[$name];
+    }
+
+    /**
+     * @param  string $url
+     * @param  string $userAgent
+     * @return bool
+     */
+    public function isUrlAllowedByUserAgent($url, $userAgent)
+    {
+        $userAgent = $this->getUserAgent($userAgent);
+
+        if ($userAgent->isUrlAllowed($url)) {
+            // The rule
+            return $this->getUserAgent(self::DEFAULT_UA_NAME)->isUrlAllowed($url);
+        }
+
+        return false;
     }
 }
