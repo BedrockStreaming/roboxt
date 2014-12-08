@@ -30,7 +30,7 @@ class Parser
      * we create a new group of directives starting by this one.
      *
      * @param  string   $filePath
-     * @return Sequence
+     * @return File
      */
     public function parse($filePath)
     {
