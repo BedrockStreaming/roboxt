@@ -43,7 +43,9 @@ class Parser
                 continue;
             }
 
-            list($name, $value) = explode(':', $content);
+            $separatorPosition = strpos($content, ':');
+            $name = substr($content, 0, $separatorPosition);
+            $value = trim(substr($content, $separatorPosition + 1));
             $directive = new Directive($name, trim($value));
 
             // If the directive's name is "User-Agent" then register a UserAgent in the file
