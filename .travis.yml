@@ -8,4 +8,4 @@ before_script:
   - php composer.phar install --dev
 
 script:
-  - vendor/bin/phpspec
+  - vendor/bin/phpspec run
