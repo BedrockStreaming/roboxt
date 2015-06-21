@@ -24,7 +24,7 @@ class Parser
     }
 
     /**
-     * Parses a robots.txt file.
+     * Fetches and parses a robots.txt path.
      * The end result is a multidimensional array.
      * Each time the parser finds a "User-Agent" directive,
      * we create a new group of directives starting by this one.
@@ -34,7 +34,21 @@ class Parser
      */
     public function parse($filePath)
     {
-        $file  = new File($this->read($filePath));
+        return $this->parseFile($this->read($filePath));
+    }
+
+    /**
+     * Parses the contents of a robots.txt file.
+     * The end result is a multidimensional array.
+     * Each time the parser finds a "User-Agent" directive,
+     * we create a new group of directives starting by this one.
+     *
+     * @param  string   $content
+     * @return File
+     */
+    public function parseFile($content)
+    {
+        $file  = new File($content);
         $lines = explode("\n", $file->getContent());
 
         foreach ($lines as $content) {
